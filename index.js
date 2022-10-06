@@ -1,7 +1,16 @@
-window.addEventListener('keydown', (event) => {
+document.addEventListener('keydown', (event) => {
     event.preventDefault();
-    document.querySelector(`#${event.key}`).classList.add('pressed');
+    const button = document.querySelector(`#${event.key}`);
+    keyDown(button);
     setTimeout(function(){
-        document.querySelector(`#${event.key}`).classList.remove('pressed');
+        keyUp(button);
     }, 1000);
 })
+
+function keyDown(button){
+    button.classList.add('pressed');
+}
+
+function keyUp(button){
+    button.classList.remove('pressed');
+}
